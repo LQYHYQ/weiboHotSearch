@@ -11,7 +11,7 @@ def request_url(url, type, path):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
 
-        'Cookie': 'SUB=_2A25OVNxlDeRhGeNP71MS9C7JwjyIHXVtIEqtrDV8PUNbmtANLUr8kW9NTp7eQz2UqhnelNST8'
+        'Cookie': os.environ['COOKIE']
     }
 
     # 请求对象 + 响应对象 + 提取内容

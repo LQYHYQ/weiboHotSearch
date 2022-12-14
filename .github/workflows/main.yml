@@ -32,16 +32,18 @@ jobs:
           
       - name: 'Working'
         run: python ./main.py
+        env:
+          COOKIE: ${{ secrets.COOKIE }}
         
       - name: Commit files
         run: |
-         git config --local user.email "1923029218@qq.com"
-         git config --local user.name "LQYHYQ"
-         git add .
-         git commit -m "update All"
+          git config --local user.email ${{ secrets.GITEMAIL }}
+          git config --local user.name ${{ secrets.GITUSERNAME }}
+          git add .
+          git commit -m "update All"
       
       - name: Push changes
         uses:  ad-m/github-push-action@master
         with:
-         github_token: ${{ secrets.MY_GIT_TOKEN }}
-         branch: main
+          github_token: ${{ secrets.MY_GIT_TOKEN }}
+          branch: main
