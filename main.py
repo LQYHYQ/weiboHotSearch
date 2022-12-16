@@ -34,12 +34,6 @@ def parse_html(html, type, path):
     # r_list:[(rank, url, title, heat), ...] 列表元组
     r_list = pattern.findall(html)
 
-    for r_info in r_list:
-        print(r_info[0])
-        print("https://s.weibo.com" + r_info[1])
-        print(r_info[2])
-        print(r_info[3])
-
     # 保存markdown文件
     save_md(r_list, type, path)
 
@@ -63,9 +57,6 @@ def save_md(r_list, type, path):
 
 
 if __name__ == '__main__':
-
-    urlList = ['https://s.weibo.com/top/summary', 'https://s.weibo.com/top/summary?cate=entrank']
-
     urlList = [
         {
             "name": "Summary",
@@ -76,8 +67,6 @@ if __name__ == '__main__':
             "url": "https://s.weibo.com/top/summary?cate=entrank"
         }
     ]
-
-    filename = 'WeiboHotSearch' + datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S")
 
     # 指定路径下按日期分开保存
     mainPath = r'./data/weiboHotSearch/' + datetime.datetime.now().strftime("%Y-%m-%d") + '/'
