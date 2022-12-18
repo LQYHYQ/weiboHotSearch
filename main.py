@@ -48,7 +48,7 @@ def save_md(r_list, type, path):
             f.write(timeStr + " 微博文娱热搜榜\n\n")
         for r_info in r_list:
             rank = r_info[0]
-            url = 'https://s.weibo.com/' + r_info[1]
+            url = 'https://s.weibo.com' + r_info[1]
             title = r_info[2]
             heat = r_info[3]
 
