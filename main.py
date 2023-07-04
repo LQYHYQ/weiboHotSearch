@@ -26,7 +26,11 @@ def request_url(url, type, path):
 # 解析html
 def parse_html(html, type, path):
     # 正则表达式
-    regexp = '<td class="td-01 ranktop">(\d+)?<\/td>\s*<td class=\"td-02\">\s*<a href="(\/weibo\?q=[^"]+)".*?>(.+)<\/a>\s*<span>\w*\s*(\d+)<\/span>'
+    regexp = None
+    if type == "Summary":
+        regexp = '<td class="td-01 ranktop ranktop\d+">(\d+)?<\/td>\s*<td class=\"td-02\">\s*<a href="(\/weibo\?q=[^"]+)".*?>(.+)<\/a>\s*<span>.* (\d+)<\/span>'
+    elif type = "Entertainment":
+        regexp = '<td class="td-01 ranktop">(\d+)?<\/td>\s*<td class=\"td-02\">\s*<a href="(\/weibo\?q=[^"]+)".*?>(.+)<\/a>\s*<span>\w*\s*(\d+)<\/span>'
 
     # 生成正则表达式对象
     pattern = re.compile(regexp, flags=0)
